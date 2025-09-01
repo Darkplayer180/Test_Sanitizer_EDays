@@ -2,6 +2,14 @@
 
 (chatGPT) Nicht alle infos sind zertifiziert.
 
+## Build
+
+- Öffne eine Konsole und navigiere zum Wurzelverzeichniss dieses repos
+- mkdir build
+- $ cmake -S . -B build -G Ninja -DCMAKE_CXX_COMPILER=clang++   -DCMAKE_BUILD_TYPE=Debug
+- $ cmake --build build
+- $ ctest --test-dir build --output-on-failure
+
 ## Welche Sanitizer gibt’s (praktisch)?
 
 | Kürzel | Findet… | Typische Flags / Hinweise | Combine | Suppoert (kurz) |
@@ -25,5 +33,3 @@
 - **ASan + UBSan (+ LSan)** für die meisten User-Space-Projekte.
 - **TSan + UBSan** für nebenläufigen Code (statt ASan).
 - **MSan** separat, wenn uninitialisierte Nutzung ein Thema ist.
-
-Wenn du willst, passe ich dein CMake so an, dass du per Option zwischen {ASan+UBSan+LSan} und {TSan+UBSan} umschalten kannst – inkl. passenden ENVIRONMENT- und FAIL_REGULAR_EXPRESSION-Settings für CTest.
