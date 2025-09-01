@@ -1,0 +1,28 @@
+Start testing: Sep 01 08:34 CEST
+----------------------------------------------------------
+1/1 Testing: overflow_test
+1/1 Test: overflow_test
+Command: "/home/patrick/Documents/playground/test-sanitiser/build/run_tests"
+Directory: /home/patrick/Documents/playground/test-sanitiser/build
+"overflow_test" start time: Sep 01 08:34 CEST
+Output:
+----------------------------------------------------------
+
+=================================================================
+==229684==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 168 byte(s) in 1 object(s) allocated from:
+    #0 0x5f0c6e49a08d in operator new[](unsigned long) (/home/patrick/Documents/playground/test-sanitiser/build/run_tests+0xdc08d) (BuildId: 7f6b66df4b421a3297f48ded6f5b2711d46de49d)
+    #1 0x5f0c6e49c588 in main /home/patrick/Documents/playground/test-sanitiser/tests/test_overflow.cpp:14:3
+    #2 0x7a1a3cc29d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 168 byte(s) leaked in 1 allocation(s).
+<end of output>
+Test time =   0.17 sec
+----------------------------------------------------------
+Test Failed.
+"overflow_test" end time: Sep 01 08:34 CEST
+"overflow_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 01 08:34 CEST
